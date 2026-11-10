@@ -26,7 +26,27 @@ class MyApp extends StatelessWidget {
       ),
 
       themeMode: ThemeMode.system,
+    );
+  }
+}
 
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Profile Mahasiswa"),
+        actions: [
+          IconButton(
+            onPressed: () {
+              print("object");
+            },
+            icon: Icon(Icons.back_hand_outlined),
+          ),
+        ],
+      ),
     );
   }
 }
