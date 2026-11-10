@@ -14,6 +14,10 @@ class MyApp extends StatelessWidget {
       title: "Profile Akhmad Khilman Al Khafid",
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
+        textTheme: TextTheme(
+          headlineSmall: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          bodyMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.w300),
+        ),
         useMaterial3: true,
       ),
 
@@ -21,6 +25,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.greenAccent,
           brightness: Brightness.dark,
+        ),
+        textTheme: TextTheme(
+          headlineSmall: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          bodyMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.w300),
         ),
         useMaterial3: true,
       ),
@@ -45,7 +53,7 @@ class ProfilePage extends StatelessWidget {
             onPressed: () {
               print("object");
             },
-            icon: Icon(Icons.back_hand_outlined),
+            icon: Icon(Icons.dashboard),
           ),
         ],
       ),
@@ -54,16 +62,24 @@ class ProfilePage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.all(20),
-            child: Column(
-              children: [
-                CircleAvatar(child: Icon(Icons.person_2_outlined)),
-                SizedBox(height: 8),
-                Text("Akhmad Khilman Al Khafid"),
-                SizedBox(height: 5),
-                Text("1124160075"),
-                SizedBox(height: 5),
-                Text("Teknik Informatika."),
-              ],
+            child: Center(
+              child: Column(
+                children: [
+                  CircleAvatar(child: Icon(Icons.person_2_outlined)),
+                  SizedBox(height: 12),
+                  Text(
+                    "Akhmad Khilman Al Khafid",
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  SizedBox(height: 5),
+                  Text(
+                    "1124160075",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  SizedBox(height: 5),
+                  Text("Teknik Informatika."),
+                ],
+              ),
             ),
           ),
         ),
