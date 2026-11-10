@@ -26,6 +26,8 @@ class MyApp extends StatelessWidget {
       ),
 
       themeMode: ThemeMode.system,
+
+      home: ProfilePage(),
     );
   }
 }
@@ -60,7 +62,7 @@ class ProfilePage extends StatelessWidget {
                 SizedBox(height: 5),
                 Text("1124160075"),
                 SizedBox(height: 5),
-                Text("Teknik Informatika"),
+                Text("Teknik Informatika."),
               ],
             ),
           ),
