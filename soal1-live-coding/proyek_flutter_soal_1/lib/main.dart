@@ -78,6 +78,75 @@ class ProfilePage extends StatelessWidget {
                   ),
                   SizedBox(height: 5),
                   Text("Teknik Informatika."),
+
+                  SizedBox(height: 25),
+
+                  Card(
+                    child: Column(
+                      spacing: 3,
+                      children: [
+                        Text(
+                          "Kontak",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        InfoTile(
+                          icon: Icons.email,
+                          label: "Email",
+                          value: "khilman3570@gamil.com",
+                        ),
+                        InfoTile(
+                          icon: Icons.phone_android_outlined,
+                          label: "Nomor HP",
+                          value: "081296200350",
+                        ),
+                        InfoTile(
+                          icon: Icons.class_outlined,
+                          label: "Kelas",
+                          value: "TI 24 SE-1",
+                        ),
+                        InfoTile(
+                          icon: Icons.work_history_outlined,
+                          label: "Github",
+                          value: "https://github.com/AkhmadKhilman",
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(height: 25),
+
+                  Card(
+                    child: Column(
+                      spacing: 3,
+                      children: [
+                        Text(
+                          "Keahlian dan Hobi",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        InfoTile(
+                          icon: Icons.code_outlined,
+                          label: "Coding",
+                          value: "PHP, Dart, Java",
+                        ),
+                        InfoTile(
+                          icon: Icons.gamepad_outlined,
+                          label: "Gaming",
+                          value: "Playing console game and casual game",
+                        ),
+                        InfoTile(
+                          icon: Icons.train_outlined,
+                          label: "Travelling",
+                          value: "Healing for resting",
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
