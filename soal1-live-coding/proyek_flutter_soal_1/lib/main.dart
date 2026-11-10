@@ -47,6 +47,25 @@ class ProfilePage extends StatelessWidget {
           ),
         ],
       ),
+
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              children: [
+                CircleAvatar(child: Icon(Icons.person_2_outlined)),
+                SizedBox(height: 8),
+                Text("Akhmad Khilman Al Khafid"),
+                SizedBox(height: 5),
+                Text("1124160075"),
+                SizedBox(height: 5),
+                Text("Teknik Informatika"),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
