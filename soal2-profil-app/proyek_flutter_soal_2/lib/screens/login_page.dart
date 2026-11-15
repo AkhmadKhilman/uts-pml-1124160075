@@ -1,26 +1,69 @@
 import 'package:flutter/material.dart';
+import 'package:proyek_flutter_soal_2/helpers/theme_extension.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(20),
-            child: Column(
-              children: [
-                Text("Login", style: Theme.of(context).textTheme.titleLarge),
+            padding: EdgeInsetsGeometry.all(20),
+            child: Form(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    "Login",
+                    style: context.themeText.headlineLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: context.themeColor.primary,
+                    ),
+                  ),
 
-                Text("Email", style: Theme.of(context).textTheme.labelMedium),
+                  SizedBox(height: 30),
 
-                Text(
-                  "Password",
-                  style: Theme.of(context).textTheme.labelMedium,
-                ),
-              ],
+                  TextFormField(
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      icon: Icon(Icons.email),
+                      labelText: "Email",
+                      hintText: "example@gmail.com",
+                      border: UnderlineInputBorder(),
+                    ),
+                  ),
+
+                  SizedBox(height: 20),
+
+                  TextFormField(
+                    keyboardType: TextInputType.visiblePassword,
+                    decoration: InputDecoration(
+                      icon: Icon(Icons.lock),
+                      labelText: "Password",
+                      border: UnderlineInputBorder(),
+                    ),
+                  ),
+
+                  SizedBox(height: 40),
+
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Memuat data login")),
+                      );
+                    },
+
+                    label: Text("Login"),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
