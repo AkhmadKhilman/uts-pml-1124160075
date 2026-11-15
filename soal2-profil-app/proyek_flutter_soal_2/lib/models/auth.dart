@@ -1,6 +1,5 @@
 class Auth {
-  final String emailAuth;
-  final String passwordAuth;
+  final String emailAuth, passwordAuth;
 
   const Auth({required this.emailAuth, required this.passwordAuth});
 
