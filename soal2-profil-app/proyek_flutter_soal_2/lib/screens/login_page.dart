@@ -35,8 +35,8 @@ class _LoginPageState extends State<LoginPage> {
 
     if (!mounted) return;
 
-    if (_emailController.text.trim() == Auth.Login.emailAuth &&
-        _passwordController.text == Auth.Login.passwordAuth) {
+    if (_emailController.text.trim() == Auth.dataAuth.emailAuth &&
+        _passwordController.text == Auth.dataAuth.passwordAuth) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text("Login Berhasil"),
@@ -119,9 +119,6 @@ class _LoginPageState extends State<LoginPage> {
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Password tidak boleh kosong";
-                    }
-                    if (value != Auth.Login.passwordAuth) {
-                      return "coba salah";
                     }
                     return null;
                   },
