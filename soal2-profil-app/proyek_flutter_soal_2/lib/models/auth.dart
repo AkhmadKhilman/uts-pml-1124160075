@@ -3,7 +3,6 @@ class Auth {
 
   const Auth({required this.emailAuth, required this.passwordAuth});
 
-  // ignore: constant_identifier_names
   static const Auth dataAuth = Auth(
     emailAuth: "1124160075@gmail.com",
     passwordAuth: "1124160075",

@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
       });
     }
 
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 3));
 
     if (!mounted) return;
 
@@ -38,8 +38,8 @@ class _LoginPageState extends State<LoginPage> {
         _passwordController.text == Auth.dataAuth.passwordAuth) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text("Login Berhasil"),
-          backgroundColor: context.succesColor,
+          content: const Text("Login Berhasil"),
+          backgroundColor: context.successColor,
         ),
       );
 
@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text("Email atau Password salah"),
+          content: const Text("Email atau Password salah"),
           backgroundColor: context.errorColor,
         ),
       );
@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsetsGeometry.all(20),
+          padding: const EdgeInsets.all(20),
           child: Form(
             key: _formKey,
             child: Column(
@@ -79,12 +79,12 @@ class _LoginPageState extends State<LoginPage> {
                   textAlign: TextAlign.center,
                 ),
 
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
 
                 TextFormField(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     icon: Icon(Icons.email),
                     labelText: "Email",
                     border: UnderlineInputBorder(),
@@ -100,14 +100,14 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
 
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
                 TextFormField(
                   controller: _passwordController,
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: true,
                   obscuringCharacter: "*",
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     icon: Icon(Icons.lock),
                     labelText: "Password",
                     border: UnderlineInputBorder(),
@@ -120,12 +120,12 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
 
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
 
                 ElevatedButton(
                   onPressed: _isLoading ? null : _login,
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(vertical: 20),
+                    padding: const EdgeInsets.symmetric(vertical: 20),
                     backgroundColor: context.themeColor.onPrimary,
                     foregroundColor: context.themeColor.primary,
                     textStyle: context.themeText.titleLarge?.copyWith(
@@ -133,11 +133,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   child: _isLoading
-                      ? CircularProgressIndicator(
-                          color: Colors.white,
-                          padding: EdgeInsets.symmetric(vertical: 10),
-                        )
-                      : Text("Login"),
+                      ? const CircularProgressIndicator(color: Colors.white)
+                      : const Text("Login"),
                 ),
               ],
             ),

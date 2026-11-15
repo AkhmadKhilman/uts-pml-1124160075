@@ -3,7 +3,7 @@ import 'package:proyek_flutter_soal_2/screens/login_page.dart';
 import 'package:proyek_flutter_soal_2/screens/profile_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Color(0xFF005A9C),
+          seedColor: const Color(0xFF005A9C),
           brightness: Brightness.light,
         ),
       ),
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Color(0xFF1B365D),
+          seedColor: const Color(0xFF1B365D),
           brightness: Brightness.dark,
         ),
       ),
