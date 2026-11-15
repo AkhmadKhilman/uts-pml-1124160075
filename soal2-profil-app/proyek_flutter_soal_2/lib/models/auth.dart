@@ -6,7 +6,7 @@ class Auth {
 
   // ignore: constant_identifier_names
   static const Auth Login = Auth(
-    emailAuth: "akhmadkhilman@gmail.com",
+    emailAuth: "1124160075@gmail.com",
     passwordAuth: "1124160075",
   );
 }
