@@ -4,8 +4,9 @@ class Auth {
 
   const Auth({required this.emailAuth, required this.passwordAuth});
 
+  // ignore: constant_identifier_names
   static const Auth Login = Auth(
-    emailAuth: "akhmadkhilman@gamil.com",
+    emailAuth: "akhmadkhilman@gmail.com",
     passwordAuth: "1124160075",
   );
 }
