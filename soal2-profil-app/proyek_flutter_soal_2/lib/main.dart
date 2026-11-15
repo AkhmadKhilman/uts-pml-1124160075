@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyek_flutter_soal_2/screens/login_page.dart';
+import 'package:proyek_flutter_soal_2/screens/profile_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -32,7 +33,12 @@ class MyApp extends StatelessWidget {
 
       themeMode: ThemeMode.system,
 
-      home: LoginPage(),
+      initialRoute: "/login",
+
+      routes: {
+        "/login": (context) => const LoginPage(),
+        "/profile": (context) => const ProfilePage(),
+      },
     );
   }
 }

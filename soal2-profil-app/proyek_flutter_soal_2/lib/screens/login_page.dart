@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyek_flutter_soal_2/helpers/theme_extension.dart';
 import 'package:proyek_flutter_soal_2/models/auth.dart';
-import 'package:proyek_flutter_soal_2/screens/profile_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -44,10 +43,7 @@ class _LoginPageState extends State<LoginPage> {
         ),
       );
 
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => ProfilePage()),
-      );
+      Navigator.pushReplacementNamed(context, "/profile");
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
