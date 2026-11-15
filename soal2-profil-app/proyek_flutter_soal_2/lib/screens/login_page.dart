@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyek_flutter_soal_2/helpers/theme_extension.dart';
+import 'package:proyek_flutter_soal_2/models/auth.dart';
 import 'package:proyek_flutter_soal_2/screens/profile_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -34,21 +35,31 @@ class _LoginPageState extends State<LoginPage> {
 
     if (!mounted) return;
 
-    // Navigator.pushReplacement(
-    //   context,
-    //   MaterialPageRoute(builder: (context) => ProfilePage()),
-    // );
+    if (_emailController.text.trim() == Auth.Login.emailAuth &&
+        _passwordController.text == Auth.Login.passwordAuth) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Login Berhasil"),
+          backgroundColor: context.succesColor,
+        ),
+      );
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => ProfilePage()),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Email atau Password salah"),
+          backgroundColor: context.errorColor,
+        ),
+      );
+    }
 
     setState(() {
       _isLoading = false;
     });
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text("Login Berhasil"),
-        backgroundColor: context.themeColor.error,
-      ),
-    );
   }
 
   @override
@@ -75,6 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: 30),
 
                 TextFormField(
+                  controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     icon: Icon(Icons.email),
@@ -95,6 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: 20),
 
                 TextFormField(
+                  controller: _passwordController,
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: true,
                   obscuringCharacter: "*",
@@ -107,6 +120,9 @@ class _LoginPageState extends State<LoginPage> {
                     if (value == null || value.isEmpty) {
                       return "Password tidak boleh kosong";
                     }
+                    if (value != Auth.Login.passwordAuth) {
+                      return "coba salah";
+                    }
                     return null;
                   },
                 ),
@@ -116,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                 ElevatedButton(
                   onPressed: _isLoading ? null : _login,
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(vertical: 16),
+                    padding: EdgeInsets.symmetric(vertical: 20),
                     backgroundColor: context.themeColor.onPrimary,
                     foregroundColor: context.themeColor.primary,
                     textStyle: context.themeText.titleLarge?.copyWith(
@@ -124,7 +140,10 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   child: _isLoading
-                      ? CircularProgressIndicator(color: Colors.white)
+                      ? CircularProgressIndicator(
+                          color: Colors.white,
+                          padding: EdgeInsets.symmetric(vertical: 10),
+                        )
                       : Text("Login"),
                 ),
               ],
