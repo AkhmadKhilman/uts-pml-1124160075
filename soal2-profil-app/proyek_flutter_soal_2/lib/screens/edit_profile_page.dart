@@ -47,6 +47,16 @@ class _EditProfilePageState extends State<EditProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: context.themeColor.onPrimaryContainer,
+
+        leading: IconButton(
+          color: context.themeColor.primaryContainer,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back),
+        ),
+
         title: Text(
           "Edit Profil",
           style: context.themeText.titleLarge?.copyWith(
@@ -139,6 +149,16 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
                       Navigator.pop(context);
                     },
+
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      backgroundColor: context.themeColor.onPrimary,
+                      foregroundColor: context.themeColor.primary,
+                      textStyle: context.themeText.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+
                     child: const Text("Simpan"),
                   ),
                 ],
