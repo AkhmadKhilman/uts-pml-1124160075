@@ -20,16 +20,19 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
 
       actions: [
-        IconButton(
-          onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: const Text("Fitur ganti mode dalam pengerjaan"),
-                backgroundColor: context.warningColor,
-              ),
-            );
-          },
-          icon: const Icon(Icons.nightlight),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: IconButton(
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: const Text("Fitur ganti mode dalam pengerjaan"),
+                  backgroundColor: context.warningColor,
+                ),
+              );
+            },
+            icon: const Icon(Icons.nightlight),
+          ),
         ),
       ],
     );

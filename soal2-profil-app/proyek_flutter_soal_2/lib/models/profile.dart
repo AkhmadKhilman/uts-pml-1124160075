@@ -6,6 +6,7 @@ class Profile {
   final String bio;
   final String telp;
   final String github;
+  final String pathFoto;
 
   const Profile({
     required this.nama,
@@ -15,6 +16,7 @@ class Profile {
     required this.bio,
     required this.telp,
     required this.github,
+    required this.pathFoto,
   });
 
   static const Profile dataProfile = Profile(
@@ -25,5 +27,6 @@ class Profile {
     bio: "Mahasiswa Software Engineering STMIK Global dengan minat kuat pada pengembangan perangkat lunak. Berpengalaman mengelola web hosting mandiri dan modifikasi sistem operasi.",
     telp: "081296200350",
     github: "AkhmadKhilman",
+    pathFoto: "assets/photo-profile.jpeg",
   );
 }

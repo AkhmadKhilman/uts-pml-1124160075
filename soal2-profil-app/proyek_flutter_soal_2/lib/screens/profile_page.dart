@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:proyek_flutter_soal_2/helpers/theme_extension.dart';
 import 'package:proyek_flutter_soal_2/models/auth.dart';
 import 'package:proyek_flutter_soal_2/models/profile.dart';
+import 'package:proyek_flutter_soal_2/widgets/app_bar.dart';
+import 'package:proyek_flutter_soal_2/widgets/bottom_nav.dart';
 import 'package:proyek_flutter_soal_2/widgets/profile_info.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -15,6 +17,8 @@ class _MyProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: MyAppbar(judul: "Profil"),
+
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -23,7 +27,7 @@ class _MyProfilePageState extends State<ProfilePage> {
               child: Column(
                 children: [
                   CircleAvatar(
-                    backgroundColor: context.themeColor.onSecondary,
+                    backgroundImage: AssetImage(Profile.dataProfile.pathFoto),
                     radius: 50,
                   ),
 
@@ -133,6 +137,8 @@ class _MyProfilePageState extends State<ProfilePage> {
           ),
         ),
       ),
+
+      bottomNavigationBar: MyBotttomNav(halamanAktif: 1),
     );
   }
 }
