@@ -9,31 +9,8 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: IconButton(
-        onPressed: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: const Text("Fitur ganti mode dalam pengerjaan"),
-              backgroundColor: context.warningColor,
-            ),
-          );
-        },
-        icon: const Icon(Icons.nightlight),
-      ),
+      backgroundColor: context.themeColor.onPrimary,
 
-      actions: [
-        IconButton(
-          onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: const Text("Fitur Logout dalam pengerjaan"),
-                backgroundColor: context.warningColor,
-              ),
-            );
-          },
-          icon: Icon(Icons.logout, color: context.errorColor),
-        ),
-      ],
       title: Text(
         judul,
         style: context.themeText.titleLarge?.copyWith(
@@ -41,7 +18,20 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       centerTitle: true,
-      backgroundColor: context.themeColor.onPrimary,
+
+      actions: [
+        IconButton(
+          onPressed: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: const Text("Fitur ganti mode dalam pengerjaan"),
+                backgroundColor: context.warningColor,
+              ),
+            );
+          },
+          icon: const Icon(Icons.nightlight),
+        ),
+      ],
     );
   }
 
