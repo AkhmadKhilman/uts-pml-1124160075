@@ -141,7 +141,7 @@ class _MyProfilePageState extends State<ProfilePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushReplacementNamed(context, "/editProfile").then((_) {
+          Navigator.pushNamed(context, "/editProfile").then((_) {
             setState(() {});
           });
         },

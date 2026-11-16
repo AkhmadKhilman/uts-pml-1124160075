@@ -47,12 +47,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pushReplacementNamed(context, "/profile");
-          },
-          icon: Icon(Icons.close),
-        ),
         title: Text(
           "Edit Profil",
           style: context.themeText.titleLarge?.copyWith(
