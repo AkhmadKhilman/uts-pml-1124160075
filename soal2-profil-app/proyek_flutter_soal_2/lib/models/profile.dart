@@ -19,7 +19,7 @@ class Profile {
     required this.pathFoto,
   });
 
-  static const Profile dataProfile = Profile(
+  static Profile dataProfile = Profile(
     nama: "Akhmad Khilman Al Khafid",
     nim: "1124160075",
     prodi: "Teknik Informatika",

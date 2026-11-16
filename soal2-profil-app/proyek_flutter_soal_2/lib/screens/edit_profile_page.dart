@@ -12,6 +12,7 @@ class EditProfilePage extends StatefulWidget {
 
 class _EditProfilePageState extends State<EditProfilePage> {
   final TextEditingController _namaController = TextEditingController();
+  final TextEditingController _kelasController = TextEditingController();
   final TextEditingController _prodiController = TextEditingController();
   final TextEditingController _bioController = TextEditingController();
   final TextEditingController _telpController = TextEditingController();
@@ -21,6 +22,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   void initState() {
     _namaController.text = Profile.dataProfile.nama;
+    _kelasController.text = Profile.dataProfile.kelas;
     _prodiController.text = Profile.dataProfile.prodi;
     _bioController.text = Profile.dataProfile.bio;
     _telpController.text = Profile.dataProfile.telp;
@@ -32,6 +34,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   void dispose() {
     _namaController.dispose();
+    _kelasController.dispose();
     _prodiController.dispose();
     _bioController.dispose();
     _telpController.dispose();
@@ -76,6 +79,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   const SizedBox(height: 15),
 
                   TextFormField(
+                    controller: _kelasController,
+                    decoration: const InputDecoration(labelText: "Kelas"),
+                  ),
+
+                  const SizedBox(height: 15),
+
+                  TextFormField(
                     controller: _prodiController,
                     decoration: const InputDecoration(
                       labelText: "Program Studi",
@@ -113,7 +123,30 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
                   const SizedBox(height: 30),
 
-                  ElevatedButton(onPressed: () {}, child: const Text("Simpan")),
+                  ElevatedButton(
+                    onPressed: () {
+                      Profile.dataProfile = Profile(
+                        nama: _namaController.text,
+                        kelas: _kelasController.text,
+                        prodi: _prodiController.text,
+                        bio: _bioController.text,
+                        telp: _telpController.text,
+                        github: _githubController.text,
+
+                        nim: Profile.dataProfile.nim,
+                        pathFoto: Profile.dataProfile.pathFoto,
+                      );
+
+                      Auth.dataAuth = Auth(
+                        emailAuth: _emailController.text,
+
+                        passwordAuth: Auth.dataAuth.passwordAuth,
+                      );
+
+                      Navigator.pop(context);
+                    },
+                    child: const Text("Simpan"),
+                  ),
                 ],
               ),
             ),

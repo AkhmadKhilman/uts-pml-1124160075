@@ -3,7 +3,7 @@ class Auth {
 
   const Auth({required this.emailAuth, required this.passwordAuth});
 
-  static const Auth dataAuth = Auth(
+  static Auth dataAuth = Auth(
     emailAuth: "1124160075@gmail.com",
     passwordAuth: "1124160075",
   );
