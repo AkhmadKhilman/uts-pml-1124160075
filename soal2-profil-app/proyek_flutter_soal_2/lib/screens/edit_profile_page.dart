@@ -24,6 +24,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
   @override
   void initState() {
+    super.initState();
     _namaController.text = Profile.dataProfile.nama;
     _nimController.text = Profile.dataProfile.nim;
     _kelasController.text = Profile.dataProfile.kelas;
@@ -32,7 +33,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
     _telpController.text = Profile.dataProfile.telp;
     _emailController.text = Auth.dataAuth.emailAuth;
     _githubController.text = Profile.dataProfile.github;
-    super.initState();
   }
 
   @override
@@ -80,6 +80,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   TextFormField(
+                    keyboardType: TextInputType.name,
                     controller: _namaController,
                     decoration: const InputDecoration(
                       labelText: "Nama Lengkap",
@@ -131,6 +132,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   const SizedBox(height: 15),
 
                   TextFormField(
+                    keyboardType: TextInputType.multiline,
                     controller: _bioController,
                     decoration: const InputDecoration(labelText: "Biodata"),
                     maxLines: 3,
@@ -145,6 +147,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   const SizedBox(height: 15),
 
                   TextFormField(
+                    keyboardType: TextInputType.phone,
                     controller: _telpController,
                     decoration: const InputDecoration(labelText: "No Telp"),
                     validator: (value) {
@@ -152,8 +155,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         return "Nomor Telephone tidak boleh kosong";
                       }
 
-                      if (value.length > 10 || value.length > 13) {
-                        return "Nomor Telephone kurang tepat";
+                      if (value.length < 10 || value.length > 13) {
+                        return "Nomor Telephone kekurangan atau kelebihan digit";
                       }
                       return null;
                     },
@@ -162,6 +165,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   const SizedBox(height: 15),
 
                   TextFormField(
+                    keyboardType: TextInputType.emailAddress,
                     controller: _emailController,
                     decoration: const InputDecoration(labelText: "Email"),
                     validator: (value) {
