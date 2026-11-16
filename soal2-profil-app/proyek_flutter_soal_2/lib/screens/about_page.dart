@@ -9,6 +9,18 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppbar(judul: "Tentang Saya"),
+
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(children: [
+              
+            ]),
+          ),
+        ),
+      ),
+
       bottomNavigationBar: MyBotttomNav(halamanAktif: 1),
     );
   }
