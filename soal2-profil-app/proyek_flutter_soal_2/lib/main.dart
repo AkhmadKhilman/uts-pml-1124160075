@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             useMaterial3: true,
             colorScheme: ColorScheme.fromSeed(
-              seedColor: const Color(0xFF005A9C),
+              seedColor: const Color(0xFF1B365D),
               brightness: Brightness.light,
             ),
           ),
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData(
             useMaterial3: true,
             colorScheme: ColorScheme.fromSeed(
-              seedColor: const Color(0xFF1B365D),
+              seedColor: const Color(0xFF005A9C),
               brightness: Brightness.dark,
             ),
           ),

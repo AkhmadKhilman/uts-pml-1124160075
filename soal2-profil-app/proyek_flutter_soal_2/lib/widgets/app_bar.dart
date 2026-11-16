@@ -10,12 +10,13 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: context.themeColor.onPrimary,
+      backgroundColor: context.themeColor.onPrimaryContainer,
 
       title: Text(
         judul,
         style: context.themeText.titleLarge?.copyWith(
           fontWeight: FontWeight.bold,
+          color: context.themeColor.primaryContainer,
         ),
       ),
       centerTitle: true,
@@ -24,6 +25,7 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: IconButton(
+            color: context.themeColor.primaryContainer,
             onPressed: () {
               themeNotifier.value = themeNotifier.value == ThemeMode.light
                   ? ThemeMode.dark
