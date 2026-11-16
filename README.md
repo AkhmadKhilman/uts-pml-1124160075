@@ -10,7 +10,7 @@
 
 ## 🎥 Video Demonstrasi
 
-▶️ **[Tonton Demo Aplikasi di YouTube](Sedang Proses...)**
+▶️ **[Tonton Demo Aplikasi di YouTube](https://youtu.be/jxXeMC3ZJ08)**
 
 ## ✨ Fitur Utama
 
