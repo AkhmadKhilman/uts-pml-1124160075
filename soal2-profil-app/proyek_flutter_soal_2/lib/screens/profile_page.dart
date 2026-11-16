@@ -4,7 +4,7 @@ import 'package:proyek_flutter_soal_2/models/auth.dart';
 import 'package:proyek_flutter_soal_2/models/profile.dart';
 import 'package:proyek_flutter_soal_2/widgets/app_bar.dart';
 import 'package:proyek_flutter_soal_2/widgets/bottom_nav.dart';
-import 'package:proyek_flutter_soal_2/widgets/profile_info.dart';
+import 'package:proyek_flutter_soal_2/widgets/list_info.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -110,19 +110,19 @@ class _MyProfilePageState extends State<ProfilePage> {
 
                           const SizedBox(height: 10),
 
-                          ProfileInfo(
+                          ListInfo(
                             ikon: Icons.email,
                             judul: "Email",
                             isi: Auth.dataAuth.emailAuth,
                           ),
                           Divider(),
-                          ProfileInfo(
+                          ListInfo(
                             ikon: Icons.phone,
                             judul: "No Telp",
                             isi: Profile.dataProfile.telp,
                           ),
                           Divider(),
-                          ProfileInfo(
+                          ListInfo(
                             ikon: Icons.terminal,
                             judul: "Github",
                             isi: Profile.dataProfile.github,
