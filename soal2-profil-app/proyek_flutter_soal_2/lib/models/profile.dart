@@ -22,7 +22,7 @@ class Profile {
     nim: "1124160075",
     prodi: "Teknik Informatika",
     kelas: "TI 24 SE-1",
-    bio: "slow living",
+    bio: "Mahasiswa Software Engineering STMIK Global dengan minat kuat pada pengembangan perangkat lunak. Berpengalaman mengelola web hosting mandiri dan modifikasi sistem operasi.",
     telp: "081296200350",
     github: "https://github.com/AkhmadKhilman",
   );
