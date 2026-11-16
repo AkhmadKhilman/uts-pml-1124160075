@@ -141,7 +141,9 @@ class _MyProfilePageState extends State<ProfilePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushReplacementNamed(context, "/editProfile");
+          Navigator.pushReplacementNamed(context, "/editProfile").then((_) {
+            setState(() {});
+          });
         },
         foregroundColor: context.themeColor.surface,
         backgroundColor: context.warningColor,
