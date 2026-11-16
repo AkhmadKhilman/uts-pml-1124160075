@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyek_flutter_soal_2/helpers/theme_manager.dart';
 import 'package:proyek_flutter_soal_2/screens/login_page.dart';
 import 'package:proyek_flutter_soal_2/screens/profile_page.dart';
 
@@ -11,33 +12,38 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Profil Akhmad Khilman Al Khafid",
+    return ValueListenableBuilder(
+      valueListenable: themeNotifier,
+      builder: (context, currentMode, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: "Profil Akhmad Khilman Al Khafid",
 
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF005A9C),
-          brightness: Brightness.light,
-        ),
-      ),
+          theme: ThemeData(
+            useMaterial3: true,
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color(0xFF005A9C),
+              brightness: Brightness.light,
+            ),
+          ),
 
-      darkTheme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF1B365D),
-          brightness: Brightness.dark,
-        ),
-      ),
+          darkTheme: ThemeData(
+            useMaterial3: true,
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color(0xFF1B365D),
+              brightness: Brightness.dark,
+            ),
+          ),
 
-      themeMode: ThemeMode.system,
+          themeMode: currentMode,
 
-      initialRoute: "/login",
+          initialRoute: "/login",
 
-      routes: {
-        "/login": (context) => const LoginPage(),
-        "/profile": (context) => const ProfilePage(),
+          routes: {
+            "/login": (context) => const LoginPage(),
+            "/profile": (context) => const ProfilePage(),
+          },
+        );
       },
     );
   }
