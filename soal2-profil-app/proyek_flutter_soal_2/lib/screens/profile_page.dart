@@ -13,37 +13,44 @@ class _MyProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Profil",
-          style: context.themeText.titleLarge?.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: context.themeColor.onPrimary,
-      ),
-
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsetsGeometry.all(20),
+            padding: const EdgeInsets.all(20),
             child: Center(
               child: Column(
                 children: [
-                  CircleAvatar(child: Icon(Icons.person_2)),
+                  CircleAvatar(
+                    backgroundColor: context.themeColor.onSecondary,
+                    radius: 50,
+                  ),
 
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
 
-                  Text(Profile.dataProfile.nama),
+                  Text(
+                    Profile.dataProfile.nama,
+                    style: context.themeText.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
 
-                  SizedBox(height: 5),
+                  const SizedBox(height: 3),
 
-                  Text(Profile.dataProfile.nim),
+                  Text(
+                    Profile.dataProfile.nim,
+                    style: context.themeText.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
 
-                  SizedBox(height: 5),
+                  const SizedBox(height: 3),
 
-                  Text(Profile.dataProfile.bio),
+                  Text(
+                    Profile.dataProfile.prodi,
+                    style: context.themeText.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
                 ],
               ),
             ),
