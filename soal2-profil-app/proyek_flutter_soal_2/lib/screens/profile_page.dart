@@ -51,10 +51,27 @@ class _MyProfilePageState extends State<ProfilePage> {
 
                   const SizedBox(height: 3),
 
-                  Text(
-                    Profile.dataProfile.prodi,
-                    style: context.themeText.bodyLarge?.copyWith(
-                      fontWeight: FontWeight.w300,
+                  IntrinsicHeight(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          Profile.dataProfile.prodi,
+                          style: context.themeText.bodyLarge?.copyWith(
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+
+                        // const SizedBox(width: 3),
+                        VerticalDivider(color: context.themeColor.onSurface),
+
+                        Text(
+                          Profile.dataProfile.kelas,
+                          style: context.themeText.bodyLarge?.copyWith(
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
 

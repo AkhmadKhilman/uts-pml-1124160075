@@ -11,7 +11,10 @@ class EditProfilePage extends StatefulWidget {
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
+  final _formKey = GlobalKey<FormState>();
+
   final TextEditingController _namaController = TextEditingController();
+  final TextEditingController _nimController = TextEditingController();
   final TextEditingController _kelasController = TextEditingController();
   final TextEditingController _prodiController = TextEditingController();
   final TextEditingController _bioController = TextEditingController();
@@ -22,6 +25,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   void initState() {
     _namaController.text = Profile.dataProfile.nama;
+    _nimController.text = Profile.dataProfile.nim;
     _kelasController.text = Profile.dataProfile.kelas;
     _prodiController.text = Profile.dataProfile.prodi;
     _bioController.text = Profile.dataProfile.bio;
@@ -34,6 +38,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   void dispose() {
     _namaController.dispose();
+    _nimController.dispose();
     _kelasController.dispose();
     _prodiController.dispose();
     _bioController.dispose();
@@ -70,6 +75,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           child: Padding(
             padding: EdgeInsets.all(20),
             child: Form(
+              key: _formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -78,6 +84,20 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     decoration: const InputDecoration(
                       labelText: "Nama Lengkap",
                     ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Nama tidak boleh kosong";
+                      }
+                      return null;
+                    },
+                  ),
+
+                  const SizedBox(height: 15),
+
+                  TextFormField(
+                    controller: _nimController,
+                    enabled: false,
+                    decoration: const InputDecoration(labelText: "NIM"),
                   ),
 
                   const SizedBox(height: 15),
@@ -85,6 +105,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   TextFormField(
                     controller: _kelasController,
                     decoration: const InputDecoration(labelText: "Kelas"),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Kelas tidak boleh kosong";
+                      }
+                      return null;
+                    },
                   ),
 
                   const SizedBox(height: 15),
@@ -94,6 +120,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     decoration: const InputDecoration(
                       labelText: "Program Studi",
                     ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Program Studi tidak boleh kosong";
+                      }
+                      return null;
+                    },
                   ),
 
                   const SizedBox(height: 15),
@@ -102,6 +134,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     controller: _bioController,
                     decoration: const InputDecoration(labelText: "Biodata"),
                     maxLines: 3,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Biodata tidak boleh kosong";
+                      }
+                      return null;
+                    },
                   ),
 
                   const SizedBox(height: 15),
@@ -109,6 +147,16 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   TextFormField(
                     controller: _telpController,
                     decoration: const InputDecoration(labelText: "No Telp"),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Nomor Telephone tidak boleh kosong";
+                      }
+
+                      if (value.length > 10 || value.length > 13) {
+                        return "Nomor Telephone kurang tepat";
+                      }
+                      return null;
+                    },
                   ),
 
                   const SizedBox(height: 15),
@@ -116,6 +164,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   TextFormField(
                     controller: _emailController,
                     decoration: const InputDecoration(labelText: "Email"),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Email tidak boleh kosong";
+                      }
+                      if (!value.contains("@")) {
+                        return "Format Email salah";
+                      }
+                      return null;
+                    },
                   ),
 
                   const SizedBox(height: 15),
@@ -123,31 +180,39 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   TextFormField(
                     controller: _githubController,
                     decoration: const InputDecoration(labelText: "Github"),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Akun Github tidak boleh kosong";
+                      }
+                      return null;
+                    },
                   ),
 
                   const SizedBox(height: 30),
 
                   ElevatedButton(
                     onPressed: () {
-                      Profile.dataProfile = Profile(
-                        nama: _namaController.text,
-                        kelas: _kelasController.text,
-                        prodi: _prodiController.text,
-                        bio: _bioController.text,
-                        telp: _telpController.text,
-                        github: _githubController.text,
+                      if (_formKey.currentState!.validate()) {
+                        Profile.dataProfile = Profile(
+                          nama: _namaController.text,
+                          kelas: _kelasController.text,
+                          prodi: _prodiController.text,
+                          bio: _bioController.text,
+                          telp: _telpController.text,
+                          github: _githubController.text,
 
-                        nim: Profile.dataProfile.nim,
-                        pathFoto: Profile.dataProfile.pathFoto,
-                      );
+                          nim: _nimController.text,
+                          pathFoto: Profile.dataProfile.pathFoto,
+                        );
 
-                      Auth.dataAuth = Auth(
-                        emailAuth: _emailController.text,
+                        Auth.dataAuth = Auth(
+                          emailAuth: _emailController.text,
 
-                        passwordAuth: Auth.dataAuth.passwordAuth,
-                      );
+                          passwordAuth: Auth.dataAuth.passwordAuth,
+                        );
 
-                      Navigator.pop(context);
+                        Navigator.pop(context);
+                      }
                     },
 
                     style: ElevatedButton.styleFrom(
