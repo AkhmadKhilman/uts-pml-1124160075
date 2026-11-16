@@ -51,6 +51,38 @@ class _MyProfilePageState extends State<ProfilePage> {
                       fontWeight: FontWeight.w300,
                     ),
                   ),
+
+                  const SizedBox(height: 30),
+
+                  Card(
+                    color: context.themeColor.onSurface,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Text(
+                            "Biodata",
+                            style: context.themeText.bodyLarge?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: context.themeColor.surface,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+
+                          const SizedBox(height: 10),
+
+                          Text(
+                            Profile.dataProfile.bio,
+                            style: context.themeText.bodyMedium?.copyWith(
+                              color: context.themeColor.surface,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
