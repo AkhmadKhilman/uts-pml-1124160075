@@ -138,6 +138,17 @@ class _MyProfilePageState extends State<ProfilePage> {
         ),
       ),
 
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushReplacementNamed(context, "/editProfile");
+        },
+        foregroundColor: context.themeColor.surface,
+        backgroundColor: context.warningColor,
+        hoverColor: context.themeColor.onSurface.withValues(alpha: 0.6),
+        child: Icon(Icons.edit),
+      ),
+
       bottomNavigationBar: MyBotttomNav(halamanAktif: 0),
     );
   }
