@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:proyek_flutter_soal_2/helpers/theme_extension.dart';
 import 'package:proyek_flutter_soal_2/models/profile.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
+  @override
+  State<ProfilePage> createState() => _MyProfilePageState();
+}
+
+class _MyProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
