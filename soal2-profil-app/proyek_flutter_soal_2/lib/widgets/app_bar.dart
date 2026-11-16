@@ -12,6 +12,23 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: context.themeColor.onPrimaryContainer,
 
+      leading: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: IconButton(
+          color: context.themeColor.primaryContainer,
+          onPressed: () {
+            themeNotifier.value = themeNotifier.value == ThemeMode.light
+                ? ThemeMode.dark
+                : ThemeMode.light;
+          },
+          icon: Icon(
+            themeNotifier.value == ThemeMode.dark
+                ? Icons.dark_mode
+                : Icons.light_mode,
+          ),
+        ),
+      ),
+
       title: Text(
         judul,
         style: context.themeText.titleLarge?.copyWith(
@@ -25,17 +42,11 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: IconButton(
-            color: context.themeColor.primaryContainer,
+            color: Colors.red,
             onPressed: () {
-              themeNotifier.value = themeNotifier.value == ThemeMode.light
-                  ? ThemeMode.dark
-                  : ThemeMode.light;
+              Navigator.pushReplacementNamed(context, "/login");
             },
-            icon: Icon(
-              themeNotifier.value == ThemeMode.dark
-                  ? Icons.dark_mode
-                  : Icons.light_mode,
-            ),
+            icon: const Icon(Icons.logout),
           ),
         ),
       ],

@@ -8,41 +8,39 @@ class MyBotttomNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
+    return NavigationBar(
       backgroundColor: context.themeColor.onPrimaryContainer,
 
-      unselectedLabelStyle: const TextStyle(
-        fontSize: 14,
-        fontWeight: FontWeight.bold,
+      indicatorColor: context.warningColor,
+      labelTextStyle: WidgetStatePropertyAll(
+        TextStyle(
+          color: context.themeColor.primaryContainer,
+          fontWeight: FontWeight.bold,
+        ),
       ),
-      unselectedItemColor: context.themeColor.primaryContainer,
 
-      selectedLabelStyle: const TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-      ),
-      selectedItemColor: context.warningColor,
-
-      currentIndex: halamanAktif,
-      onTap: (value) {
+      selectedIndex: halamanAktif,
+      onDestinationSelected: (value) {
         if (value == halamanAktif) return;
 
         switch (value) {
           case 0:
-            Navigator.pushReplacementNamed(context, "/about");
-            break;
-          case 1:
             Navigator.pushReplacementNamed(context, "/profile");
             break;
-          case 2:
-            Navigator.pushReplacementNamed(context, "/login");
+          case 1:
+            Navigator.pushReplacementNamed(context, "/about");
             break;
         }
       },
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.info), label: "About"),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-        BottomNavigationBarItem(icon: Icon(Icons.logout), label: "Logout"),
+      destinations: [
+        NavigationDestination(
+          icon: Icon(Icons.person, color: context.themeColor.primaryContainer),
+          label: "Profile",
+        ),
+        NavigationDestination(
+          icon: Icon(Icons.info, color: context.themeColor.primaryContainer),
+          label: "About",
+        ),
       ],
     );
   }

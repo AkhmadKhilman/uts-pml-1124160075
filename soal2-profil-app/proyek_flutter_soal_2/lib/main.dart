@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyek_flutter_soal_2/helpers/theme_manager.dart';
+import 'package:proyek_flutter_soal_2/screens/about_page.dart';
 import 'package:proyek_flutter_soal_2/screens/login_page.dart';
 import 'package:proyek_flutter_soal_2/screens/profile_page.dart';
 
@@ -42,6 +43,8 @@ class MyApp extends StatelessWidget {
           routes: {
             "/login": (context) => const LoginPage(),
             "/profile": (context) => const ProfilePage(),
+            // "/editProfile": (context) => const EditProfilePage(),
+            "/about": (context) => const AboutPage(),
           },
         );
       },

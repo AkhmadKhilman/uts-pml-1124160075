@@ -138,7 +138,7 @@ class _MyProfilePageState extends State<ProfilePage> {
         ),
       ),
 
-      bottomNavigationBar: MyBotttomNav(halamanAktif: 1),
+      bottomNavigationBar: MyBotttomNav(halamanAktif: 0),
     );
   }
 }
