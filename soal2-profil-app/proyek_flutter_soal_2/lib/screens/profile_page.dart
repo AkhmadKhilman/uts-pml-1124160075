@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:proyek_flutter_soal_2/helpers/theme_extension.dart';
+import 'package:proyek_flutter_soal_2/models/auth.dart';
 import 'package:proyek_flutter_soal_2/models/profile.dart';
+import 'package:proyek_flutter_soal_2/widgets/profile_info.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -38,7 +40,7 @@ class _MyProfilePageState extends State<ProfilePage> {
 
                   Text(
                     Profile.dataProfile.nim,
-                    style: context.themeText.titleMedium?.copyWith(
+                    style: context.themeText.bodyLarge?.copyWith(
                       fontWeight: FontWeight.w300,
                     ),
                   ),
@@ -47,7 +49,7 @@ class _MyProfilePageState extends State<ProfilePage> {
 
                   Text(
                     Profile.dataProfile.prodi,
-                    style: context.themeText.titleMedium?.copyWith(
+                    style: context.themeText.bodyLarge?.copyWith(
                       fontWeight: FontWeight.w300,
                     ),
                   ),
@@ -63,7 +65,7 @@ class _MyProfilePageState extends State<ProfilePage> {
                         children: [
                           Text(
                             "Biodata",
-                            style: context.themeText.bodyLarge?.copyWith(
+                            style: context.themeText.titleLarge?.copyWith(
                               fontWeight: FontWeight.bold,
                               color: context.themeColor.surface,
                             ),
@@ -74,10 +76,52 @@ class _MyProfilePageState extends State<ProfilePage> {
 
                           Text(
                             Profile.dataProfile.bio,
-                            style: context.themeText.bodyMedium?.copyWith(
+                            style: context.themeText.bodyLarge?.copyWith(
                               color: context.themeColor.surface,
                             ),
                             textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 30),
+
+                  Card(
+                    color: context.themeColor.onSurface,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Text(
+                            "Kontak",
+                            style: context.themeText.titleLarge?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: context.themeColor.surface,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+
+                          const SizedBox(height: 10),
+
+                          ProfileInfo(
+                            ikon: Icons.email,
+                            judul: "Email",
+                            isi: Auth.dataAuth.emailAuth,
+                          ),
+                          Divider(),
+                          ProfileInfo(
+                            ikon: Icons.phone,
+                            judul: "No Telp",
+                            isi: Profile.dataProfile.telp,
+                          ),
+                          Divider(),
+                          ProfileInfo(
+                            ikon: Icons.terminal,
+                            judul: "Github",
+                            isi: Profile.dataProfile.github,
                           ),
                         ],
                       ),

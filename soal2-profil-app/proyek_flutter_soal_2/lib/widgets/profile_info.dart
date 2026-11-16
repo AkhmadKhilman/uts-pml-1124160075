@@ -15,11 +15,21 @@ class ProfileInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      textColor: context.themeColor.surface,
-      iconColor: context.themeColor.surface,
-      leading: Icon(ikon),
-      title: Text(judul, style: context.themeText.titleMedium),
-      subtitle: Text(isi, style: context.themeText.bodyMedium),
+      leading: Icon(ikon, color: context.themeColor.surface, size: 32),
+      title: Text(
+        judul,
+        style: context.themeText.titleMedium?.copyWith(
+          fontWeight: FontWeight.bold,
+          color: context.themeColor.surface,
+        ),
+      ),
+      subtitle: Text(
+        isi,
+        style: context.themeText.bodyMedium?.copyWith(
+          fontWeight: FontWeight.w300,
+          color: context.themeColor.surface,
+        ),
+      ),
     );
   }
 }

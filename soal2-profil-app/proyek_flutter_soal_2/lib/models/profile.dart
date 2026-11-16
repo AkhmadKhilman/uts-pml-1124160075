@@ -24,6 +24,6 @@ class Profile {
     kelas: "TI 24 SE-1",
     bio: "Mahasiswa Software Engineering STMIK Global dengan minat kuat pada pengembangan perangkat lunak. Berpengalaman mengelola web hosting mandiri dan modifikasi sistem operasi.",
     telp: "081296200350",
-    github: "https://github.com/AkhmadKhilman",
+    github: "AkhmadKhilman",
   );
 }
